@@ -1,0 +1,124 @@
+/* home.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevents scrolling */
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb); /* Background gradient */
+  }
+  
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    position: relative;
+    overflow: hidden; /* Prevent overflow from circles */
+  }
+  
+  /* Circle animations */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: animateCircles 20s linear infinite;
+    z-index: -1;
+  }
+  
+  .circle:nth-child(1) {
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .circle:nth-child(2) {
+    top: 50%;
+    left: -75px;
+    width: 300px;
+    height: 300px;
+    animation-duration: 25s;
+  }
+  
+  .circle:nth-child(3) {
+    bottom: -75px;
+    right: -75px;
+    width: 400px;
+    height: 400px;
+    animation-duration: 30s;
+  }
+  
+  @keyframes animateCircles {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(50px) rotate(180deg);
+    }
+  }
+  
+  .title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+  }
+  
+  .subtitle {
+    font-size: 20px;
+    color: #f7f7f7;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .styled-link {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .styled-link:hover {
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 600px) {
+    .title {
+      font-size: 36px;
+    }
+  
+    .subtitle {
+      font-size: 18px;
+    }
+  
+    .button-container {
+      flex-direction: column;
+    }
+  
+    .styled-link {
+      font-size: 16px;
+      padding: 12px 25px;
+      margin-bottom: 10px;
+    }
+  }
+  

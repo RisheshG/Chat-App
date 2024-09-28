@@ -1,11 +1,11 @@
-// src/context/AuthContext.js
 import React, { useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase'; // Import Firebase auth
+import { signOut } from 'firebase/auth'; // Import the signOut method
 
 const AuthContext = React.createContext();
 
 export function useAuth() {
-  return useContext(AuthContext); // Make sure this is exported properly
+  return useContext(AuthContext); // Ensure the context is being used properly
 }
 
 export function AuthProvider({ children }) {
@@ -22,8 +22,15 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  // Define the logout function
+  const logout = () => {
+    return signOut(auth); // Uses Firebase's signOut function
+  };
+
+  // Provide the logout function in the context value
   const value = {
-    currentUser, // Ensure currentUser is provided in the context
+    currentUser, // Provide the current user
+    logout, // Provide the logout function
   };
 
   return (
